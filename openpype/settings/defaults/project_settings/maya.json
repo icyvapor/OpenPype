@@ -161,6 +161,11 @@
             "optional": true,
             "active": true
         },
+        "ValidateNodeIDs": {
+            "enabled": true,
+            "optional": true,
+            "active": true
+        },
         "ValidateShaderName": {
             "enabled": false,
             "regex": "(?P<asset>.*)_(.*)_SHD"
@@ -351,6 +356,46 @@
             "active": true
         },
         "ValidateAssRelativePaths": {
+            "enabled": true,
+            "optional": true,
+            "active": true
+        },
+        "ValidateRigContents": {
+            "enabled": true,
+            "optional": true,
+            "active": true
+        },
+        "ValidateRigControllers": {
+            "enabled": true,
+            "optional": true,
+            "active": true
+        },
+        "ValidateRigControllersArnoldAttributes": {
+            "enabled": true,
+            "optional": true,
+            "active": true
+        },
+        "ValidateRigJointsHidden": {
+            "enabled": true,
+            "optional": true,
+            "active": true
+        },
+        "ValidateRigOutSetNodeIds": {
+            "enabled": true,
+            "optional": true,
+            "active": true
+        },
+        "ValidateRigOutputIds": {
+            "enabled": true,
+            "optional": true,
+            "active": true
+        },
+        "ValidateAnimationContent": {
+            "enabled": true,
+            "optional": true,
+            "active": true
+        },
+        "ValidateOutRelatedNodeIds": {
             "enabled": true,
             "optional": true,
             "active": true

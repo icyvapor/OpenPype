@@ -45,6 +45,10 @@
                 {
                     "key": "ValidateContainers",
                     "label": "ValidateContainers"
+                },
+                {
+                    "key": "ValidateNodeIDs",
+                    "label": "ValidateNodeIDs"
                 }
             ]
         },
@@ -365,6 +369,82 @@
             ]
         },
         {
+            "type": "collapsible-wrap",
+            "label": "Rigging",
+            "children": [
+                {
+                    "type": "schema_template",
+                    "name": "template_publish_plugin",
+                    "template_data": [
+                        {
+                            "key": "ValidateRigContents",
+                            "label": "ValidateRigContents"
+                        },
+                        {
+                            "key": "ValidateRigControllers",
+                            "label": "ValidateRigControllers"
+                        },
+                        {
+                            "key": "ValidateRigControllersArnoldAttributes",
+                            "label": "ValidateRigControllersArnoldAttributes"
+                        },
+                        {
+                            "key": "ValidateRigJointsHidden",
+                            "label": "ValidateRigJointsHidden"
+                        },
+                        {
+                            "key": "ValidateRigOutSetNodeIds",
+                            "label": "ValidateRigOutSetNodeIds"
+                        },
+                        {
+                            "key": "ValidateRigOutputIds",
+                            "label": "ValidateRigOutputIds"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "collapsible-wrap",
+            "label": "Animation",
+            "children": [
+                {
+                    "type": "schema_template",
+                    "name": "template_publish_plugin",
+                    "template_data": [
+                        {
+                            "key": "ValidateAnimationContent",
+                            "label": "ValidateAnimationContent"
+                        },
+                        {
+                            "key": "ValidateOutRelatedNodeIds",
+                            "label": "ValidateOutRelatedNodeIds"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "collapsible-wrap",
+            "label": "Ass",
+            "children": [
+                {
+                    "type": "schema_template",
+                    "name": "template_publish_plugin",
+                    "template_data": [
+                        {
+                            "key": "ValidateAssemblyName",
+                            "label": "Validate Assembly Name"
+                        },
+                        {
+                            "key": "ValidateAssRelativePaths",
+                            "label": "ValidateAssRelativePaths"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "type": "schema_template",
             "name": "template_publish_plugin",
             "template_data": [
@@ -372,17 +452,10 @@
                     "key": "ValidateCameraAttributes",
                     "label": "Validate Camera Attributes",
                     "docstring": ""
-                },
-                {
-                    "key": "ValidateAssemblyName",
-                    "label": "Validate Assembly Name"
-                },
-                {
-                    "key": "ValidateAssRelativePaths",
-                    "label": "ValidateAssRelativePaths"
                 }
             ]
         },
+
         {
             "type": "splitter"
         },
