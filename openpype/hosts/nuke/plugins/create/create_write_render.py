@@ -30,6 +30,7 @@ class CreateWriteRender(plugin.PypeCreator):
         self.data = data
         self.nodes = nuke.selectedNodes()
         self.log.debug("_ self.data: '{}'".format(self.data))
+        print("CreateWriteRender .data: '{}'".format(self.data))
 
     def process(self):
 
@@ -42,19 +43,9 @@ class CreateWriteRender(plugin.PypeCreator):
         if (self.options or {}).get("useSelection"):
             nodes = self.nodes
 
-            if not (len(nodes) < 2):
-                msg = ("Select only one node. "
-                       "The node you want to connect to, "
+            if len(nodes) == 0 or len(nodes) > 1:
+                msg = ("Please select a single node to connect to, "
                        "or tick off `Use selection`")
-                self.log.error(msg)
-                nuke.message(msg)
-                return
-
-            if len(nodes) == 0:
-                msg = (
-                    "No nodes selected. Please select a single node to connect"
-                    " to or tick off `Use selection`"
-                )
                 self.log.error(msg)
                 nuke.message(msg)
                 return
@@ -119,11 +110,14 @@ class CreateWriteRender(plugin.PypeCreator):
             }
         ]
 
+        linked_knob_names = ["file"]
+
         write_node = lib.create_write_node(
             self.data["subset"],
             write_data,
             input=selected_node,
-            prenodes=_prenodes)
+            prenodes=_prenodes,
+            linked_knobs=linked_knob_names)
 
         # relinking to collected connections
         for i, input in enumerate(inputs):

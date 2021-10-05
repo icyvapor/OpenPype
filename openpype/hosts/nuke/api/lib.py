@@ -333,9 +333,9 @@ def create_write_node(name, data, input=None, prenodes=None,
     '''
 
     imageio_writes = get_created_node_imageio_setting(**data)
-    app_manager = ApplicationManager()
     app_name = os.environ.get("AVALON_APP_NAME")
     if app_name:
+        app_manager = ApplicationManager()
         app = app_manager.applications.get(app_name)
 
     for knob in imageio_writes["knobs"]:
@@ -357,8 +357,12 @@ def create_write_node(name, data, input=None, prenodes=None,
 
     # build file path to workfiles
     fdir = str(anatomy_filled["work"]["folder"]).replace("\\", "/")
+
     fpath = data["fpath_template"].format(
-        work=fdir, version=data["version"], subset=data["subset"],
+        work=fdir,
+        version=data["version"],
+        asset=data["avalon"]["asset"],
+        subset=data["subset"],
         frame=data["frame"],
         ext=representation
     )
@@ -380,12 +384,20 @@ def create_write_node(name, data, input=None, prenodes=None,
     _data = anlib.fix_data_for_node_create(_data)
 
     log.debug("_data: `{}`".format(_data))
+    print("_data: `{}`".format(_data))
 
     if "frame_range" in data.keys():
         _data["frame_range"] = data.get("frame_range", None)
         log.debug("_data[frame_range]: `{}`".format(_data["frame_range"]))
 
-    GN = nuke.createNode("Group", "name {}".format(name))
+    node_name = "{asset}_{subset}.{frame}.{ext}".format(
+        asset=data["avalon"]["asset"],
+        subset=data["subset"],
+        frame=data["frame"],
+        ext=representation
+    )
+
+    GN = nuke.createNode("Group", "name {}".format(node_name))
 
     prev_node = None
     with GN:
@@ -459,7 +471,7 @@ def create_write_node(name, data, input=None, prenodes=None,
 
         # creating write node
         write_node = now_node = anlib.add_write_node(
-            "inside_{}".format(name),
+            "inside_{}".format(node_name),
             **_data
         )
         write_node.hideControlPanel()
