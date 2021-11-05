@@ -383,16 +383,13 @@ def create_write_node(name, data, input=None, prenodes=None,
 
     _data = anlib.fix_data_for_node_create(_data)
 
-    log.debug("_data: `{}`".format(_data))
-    print("_data: `{}`".format(_data))
-
     if "frame_range" in data.keys():
         _data["frame_range"] = data.get("frame_range", None)
         log.debug("_data[frame_range]: `{}`".format(_data["frame_range"]))
 
-    node_name = "{asset}_{subset}.{frame}.{ext}".format(
+    node_name = "{asset}_{variant}_{frame}_{ext}".format(
         asset=data["avalon"]["asset"],
-        subset=data["subset"],
+        variant=data["avalon"]["variant"],
         frame=data["frame"],
         ext=representation
     )

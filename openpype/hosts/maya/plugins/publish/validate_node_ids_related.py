@@ -27,10 +27,12 @@ class ValidateNodeIDsRelated(pyblish.api.InstancePlugin):
         """Process all nodes in instance (including hierarchy)"""
         # Ensure all nodes have a cbId
         invalid = self.get_invalid(instance)
+        """
         if invalid:
             raise RuntimeError("Nodes IDs found that are not related to asset "
                                "'{}' : {}".format(instance.data['asset'],
-                                                  invalid))
+                                                   invalid))
+        """
 
     @classmethod
     def get_invalid(cls, instance):
