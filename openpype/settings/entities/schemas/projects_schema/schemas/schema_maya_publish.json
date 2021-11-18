@@ -346,30 +346,6 @@
         },
         {
             "type": "collapsible-wrap",
-            "label": "Rig",
-            "children": [
-                {
-                    "type": "schema_template",
-                    "name": "template_publish_plugin",
-                    "template_data": [
-                        {
-                            "key": "ValidateRigContents",
-                            "label": "Validate Rig Contents"
-                        },
-                        {
-                            "key": "ValidateRigJointsHidden",
-                            "label": "Validate Rig Joints Hidden"
-                        },
-                        {
-                            "key": "ValidateRigControllers",
-                            "label": "Validate Rig Controllers"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "collapsible-wrap",
             "label": "Rigging",
             "children": [
                 {

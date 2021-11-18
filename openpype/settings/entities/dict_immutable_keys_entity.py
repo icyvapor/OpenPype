@@ -91,6 +91,7 @@ class DictImmutableKeysEntity(ItemEntity):
             elif child_entity.key not in children_keys:
                 children_keys.add(child_entity.key)
             else:
+                print("[FELIX] {}".format(self.children))
                 raise SchemaDuplicatedKeys(self, child_entity.key)
 
         for key in self.keys():
